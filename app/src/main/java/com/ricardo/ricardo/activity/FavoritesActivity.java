@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -41,12 +43,16 @@ public class FavoritesActivity extends AppCompatActivity {
     //LISTA DE ITENS
     private ListView listViewItems;
 
+    //LOAD VIEW
+    private LinearLayout llLoad;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
 
         listViewItems = findViewById(R.id.lvIncludeFavorite);
+        llLoad = findViewById(R.id.LoadFavorites);
 
         nDrawerLayout = (DrawerLayout) findViewById(R.id.dlFavorites);
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
@@ -115,6 +121,7 @@ public class FavoritesActivity extends AppCompatActivity {
         requestSpaceService.enqueue(new Callback<List<ResponseList>>() {
             @Override
             public void onResponse(Call<List<ResponseList>> call, Response<List<ResponseList>> response) {
+                listViewItems.setVisibility(View.VISIBLE);
                 if(response.isSuccessful()){
                     List<ResponseList> responseListList = response.body();
 
@@ -127,6 +134,8 @@ public class FavoritesActivity extends AppCompatActivity {
                         i++;
                     }
                 }
+
+                llLoad.setVisibility(View.GONE);
             }
 
             @Override

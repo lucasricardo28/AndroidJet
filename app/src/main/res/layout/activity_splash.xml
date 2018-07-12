@@ -28,7 +28,8 @@
             android:text="@string/splash_welcome"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:fontFamily="@font/montserra_bold" />
 
     </LinearLayout>
 

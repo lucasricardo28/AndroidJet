@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,7 +12,8 @@
         android:paddingLeft="5dp"
         android:text="TextView"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:fontFamily="@font/montserra_bold" />
 
     <TextView
         android:id="@+id/tvFragmentItemSubTItle"
@@ -20,7 +22,8 @@
         android:paddingLeft="5dp"
         android:text="TextView"
         android:textColor="@color/splash_background"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:fontFamily="@font/montserra_bold" />
 
     <TextView
         android:id="@+id/tvFragmentItemText"
@@ -28,5 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:paddingLeft="5dp"
-        android:text="TextView" />
+        android:text="TextView"
+        app:fontFamily="@font/montserrat_light" />
 </LinearLayout>

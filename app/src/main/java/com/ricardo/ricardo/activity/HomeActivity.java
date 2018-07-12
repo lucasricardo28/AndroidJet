@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -42,6 +44,9 @@ public class HomeActivity extends AppCompatActivity {
     //LISTA DE ITENS
     private ListView listViewItens;
 
+    //LOAD VIEW
+    private LinearLayout llLoad;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //FAZER O NAVEGADOR SER IDENTIFICADO
         nDrawerLayout = (DrawerLayout) findViewById(R.id.dlHome);
+
+        llLoad = findViewById(R.id.LoadHome);
 
         //NAVEGADOR TER UMA ACAO DE TOGGLE
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
@@ -126,11 +133,13 @@ public class HomeActivity extends AppCompatActivity {
         requestSpaceService.enqueue(new Callback<List<ResponseList>>() {
             @Override
             public void onResponse(Call<List<ResponseList>> call, Response<List<ResponseList>> response) {
+                listViewItens.setVisibility(View.VISIBLE);
                 if(response.isSuccessful()){
                     //ADAPTADOR PARA FAZER A LISTA DE RESPOSTAS
                     AdapterHome adapter = new AdapterHome(response.body(), getLayoutInflater());
                     listViewItens.setAdapter(adapter);
                 }
+                llLoad.setVisibility(View.GONE);
             }
 
             @Override

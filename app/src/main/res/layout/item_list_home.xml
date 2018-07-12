@@ -24,7 +24,9 @@
             android:paddingTop="5dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserra_bold" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/clItemHomeTitle"
@@ -36,6 +38,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,18 +49,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:text="TextVasdasdasdiew"
+                    android:text="teste"
                     android:textColor="@android:color/background_light"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:fontFamily="@font/montserra_bold" />
 
                 <TextView
                     android:id="@+id/tvItemHomeBodySubtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
-                    android:text="asdasd asdasd asdba dsa asdasd asdasd asdba dsa asdasd asdasd asdba dsa asdasd asdasd asdba dsa asdasd asdasd asdba dsa asdasd asdasd asdba dsa asdasd asdasd asdba dsa "
+                    android:text="teste"
                     android:textColor="@android:color/background_light"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    app:fontFamily="@font/montserra_alternates_extra_light" />
 
             </LinearLayout>
 
