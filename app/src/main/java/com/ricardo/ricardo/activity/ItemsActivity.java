@@ -39,10 +39,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ItemsActivity extends AppCompatActivity {
+    //
     private Retrofit retrofit;
+
+    //PASSADO POR BUNDLE
     private Integer positionItem;
     private String titleItem;
 
+    //VARIAVEIS USADAS NO ESCORPO
     private ViewPager viewPagerFragments;
     private TabLayout tabLayoutItems;
     private ImageView imageViewBack, imageViewImage;
@@ -50,14 +54,17 @@ public class ItemsActivity extends AppCompatActivity {
     private TextView textViewLoad;
     private RatingBar ratingBar;
 
+    //OBJETO PRA EXECUTAR SER INSTANCIADO PARA ATUALIZAR A INTERFACE
     private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
+        //ESCONDER ACTION BAR
         getSupportActionBar().hide();
 
+        //VARIAVEIS USADAS NO ESCORPO
         viewPagerFragments = findViewById(R.id.vpItem);
         tabLayoutItems = findViewById(R.id.tlItem);
         imageViewBack = findViewById(R.id.ivItemBack);
@@ -117,6 +124,7 @@ public class ItemsActivity extends AppCompatActivity {
                                 tabLayoutItems.addTab(tabLayoutItems.newTab().setText(itemsCategory.getTitle()));
                             }
 
+                            //FAZER COM QUE O TabLayout TAMBEM USE O ViewPager
                             PagerAdapterItem adapter = new PagerAdapterItem(getSupportFragmentManager(), tabLayoutItems.getTabCount(),responseList.getItems(),titleItem );
                             viewPagerFragments.setAdapter(adapter);
                             viewPagerFragments.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutItems));
@@ -136,6 +144,7 @@ public class ItemsActivity extends AppCompatActivity {
 
                                 }
                             });
+                            //INSERIR UMA IMAGEM DA WEB
                             BindPhotoStudent( responseList.getItems().get(0).getGalery()[0]);
                         }
                         i++;

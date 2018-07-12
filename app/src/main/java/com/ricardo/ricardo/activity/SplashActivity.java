@@ -13,14 +13,15 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        //ESCOLDER ACTION BAR
         getSupportActionBar().hide();
 
+        //FAZER UMA ATUALIZACAO NA INTERFACE
         new Handler().postDelayed(new Runnable() {
             //Exibindo splash com um timer.
             @Override
             public void run() {
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                finish();
             }
         }, 3000);
     }

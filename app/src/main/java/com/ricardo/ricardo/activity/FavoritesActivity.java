@@ -88,7 +88,6 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void BindActionBar(){
-        //ATENENCAO ESSA FOI A SOLUCAO MAIS RAPIDA QUE ENCONTREI CUIDADO COM ESSE ACTIONBAR
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#4a90e2'>Favorites</font>"));
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_action_bar_white));

@@ -47,15 +47,19 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //LISTA
         listViewItens = findViewById(R.id.lvIncludeHome);
 
+        //FAZER O NAVEGADOR SER IDENTIFICADO
         nDrawerLayout = (DrawerLayout) findViewById(R.id.dlHome);
+
+        //NAVEGADOR TER UMA ACAO DE TOGGLE
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
         nDrawerLayout.addDrawerListener(nToggle);
         nToggle.syncState();
 
         BindActionBar();
-
+        //NAVEGAR COM OS MENUS
         NavigationView mNavigationView = findViewById(R.id.nvHome);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -77,11 +81,13 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //FUNCAO PARA ENVIAR A REQUISICAO
         BindRequest();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //ABRI E FECHAR O NAVEGADOR
         if(nToggle.onOptionsItemSelected(item)){
             return true;
         }
@@ -89,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void BindActionBar(){
-        //ATENENCAO ESSA FOI A SOLUCAO MAIS RAPIDA QUE ENCONTREI CUIDADO COM ESSE ACTIONBAR
+        //ACTION BAR PESSONALISADA
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#4a90e2'>Digital Space</font>"));
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_action_bar_white));
@@ -103,21 +109,25 @@ public class HomeActivity extends AppCompatActivity {
         OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
         okHttpClientBuilder.addInterceptor(loggingInterceptor);
 
+        //URL DE REQUISICAO
         UtilConnexion utilConnexion = new UtilConnexion();
         String url = utilConnexion.getUrl();
+
+        //INSTANCIA DO RETROFIT
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .client(okHttpClientBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        //INTERFACE E REQUISISAO
         SpaceService spaceService = retrofit.create(SpaceService.class);
-
         Call<List<ResponseList>> requestSpaceService = spaceService.GetDayByDayClasses();
         requestSpaceService.enqueue(new Callback<List<ResponseList>>() {
             @Override
             public void onResponse(Call<List<ResponseList>> call, Response<List<ResponseList>> response) {
                 if(response.isSuccessful()){
+                    //ADAPTADOR PARA FAZER A LISTA DE RESPOSTAS
                     AdapterHome adapter = new AdapterHome(response.body(), getLayoutInflater());
                     listViewItens.setAdapter(adapter);
                 }
