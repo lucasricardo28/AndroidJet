@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">JoyJet</string>
+
+    <string name="splash_welcome">Bem vindo \n Carregando... </string>
+
+    <string name="nav_menu_header_text">JoyJet</string>
+
+    <!--MENU-->
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_favorites">Favorites</string>
+
+    <!--SYSTEM-->
+    <string name="open">Abrir</string>
+    <string name="close">Fechar</string>
+    <string name="erro">Algum erro foi encontrado!</string>
+
+    <!--ITEM-->
+    <string name="item_load_image">Carregando Imagem...</string>
+    <string name="item_change_rate">Item favorito</string>
+
+</resources>
