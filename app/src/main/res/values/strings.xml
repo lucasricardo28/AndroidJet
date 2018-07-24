@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">JoyJet</string>
+    <string name="app_name">Androi Jet</string>
 
     <string name="splash_welcome">Bem vindo \n Carregando... </string>
 
-    <string name="nav_menu_header_text">JoyJet</string>
+    <string name="nav_menu_header_text">Android Jet</string>
 
     <!--MENU-->
     <string name="menu_item_home">Home</string>
@@ -17,5 +17,10 @@
     <!--ITEM-->
     <string name="item_load_image">Carregando Imagem...</string>
     <string name="item_change_rate">Item favorito</string>
+
+    <!--TUTORIAL-->
+    <string name="tutorial_1">Prático</string>
+    <string name="tutorial_2">Rápido</string>
+    <string name="tutorial_3">Fácil</string>
 
 </resources>
